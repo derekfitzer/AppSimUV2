@@ -12,8 +12,10 @@ var locations: [Location] = [loc0000, loc0001, loc0002, loc0003, loc0410, loc700
 
 
 
-var loc0000 = Location(mapID: 0, locationName: "Welcome to The Campus", bgImage: "map1", blocks: [loc0000B1], actions: [act0001, act0002, act0003])
-var loc0000B1 = ITBlock(image: "map1", text: "Welcome to the Campus", actions: [])
+var loc0000 = Location(mapID: 0, locationName: "Welcome to The Campus", bgImage: "mapBG", blocks: [itb000a, itb000b, itb000c], actions: [act0001, act0002, act0003])
+var itb000a = ITBlock(image: "map1", text: "Welcome to the Campus", actions: [])
+var itb000b = ITBlock(image: "mapBG", text: "Enter Jeremiah Hall", actions: [])
+var itb000c = ITBlock(image: "mapBG", text: "Go to the dorm", actions: [])
 
 var loc0001 = Location(mapID: 1, locationName: "J Hall", owner: "Mr. Fitzer", bgImage: "jh", blocks: [itbCommons, sampleITB2, sampleITB3], actions: [archiveDoor, act6000,act7000, act0002, act0003 ], sounds: [])
 var act0001 = Action(type: .loadLocation, text: "Visit J Hall", goLocation: 1)
