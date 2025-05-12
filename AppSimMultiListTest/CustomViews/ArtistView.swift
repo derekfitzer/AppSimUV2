@@ -18,23 +18,23 @@ struct ArtistView: View {
                     .padding()
                 
                 Text("Developers / Artists")
-                List(studentLocations, id: \.self) { student in
-                    
-                    if student.owner != nil {
-                       
-                            HStack{
-                                Text(student.owner!)
-                              
-                                NavigationLink {
-                                    ArtistDetail(location: student)
-                                } label: {
-                                 
-                                    Text("View Portfolio")
-                                }
-                            }
-                        
-                    }
-                }
+//                List(studentLocations, id: \.self) { student in
+//                    
+//                    if student.owner != nil {
+//                       
+//                            HStack{
+//                                Text(student.owner!)
+//                              
+//                                NavigationLink {
+//                                    ArtistDetail(location: student)
+//                                } label: {
+//                                 
+//                                    Text("View Portfolio")
+//                                }
+//                            }
+//                        
+//                    }
+//                }
             }
         }
     }

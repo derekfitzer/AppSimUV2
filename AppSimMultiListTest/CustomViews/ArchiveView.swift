@@ -13,14 +13,16 @@ struct ArchiveView: View {
     @State private var pick1 = "0"
     @State private var pick2 = "0"
     @State private var pick3 = "0"
-    @Binding var isPresented: Bool
+//    @Binding var isPresented: Bool
     @Environment(\.dismiss) var dismiss
     
     //   @State var currentRandom = randoLocations.randomElement()!
     @State var showArchive = false
     
+    
+    
     var body: some View {
-        NavigationView{
+//        NavigationView{
             ZStack{
                 Image("jhallArchive")
                     .resizable()
@@ -81,12 +83,7 @@ struct ArchiveView: View {
                             Text("Open Destination")
                                 .background(Color.white)
                         }
-                        Button {
-                            isPresented = false
-                        } label: {
-                            Text("Back to Jerimah Hall")
-                                .background(Color.white)
-                        }
+
                         
                         Button {
                             dismiss()
@@ -99,8 +96,9 @@ struct ArchiveView: View {
                     }
                     .onAppear{
                         playSound(sound: "archiveMusic", type: "mp3")
-                        //  currentRandom = randoLocations.randomElement()!
-                    }.navigationBarBackButtonHidden(true)
+                        
+                    }
+                    //.navigationBarBackButtonHidden(true)
                     
                     
                     
@@ -108,7 +106,7 @@ struct ArchiveView: View {
             }
         }
     }
-}
+//}
 
 //#Preview {
 //    ArchiveView()

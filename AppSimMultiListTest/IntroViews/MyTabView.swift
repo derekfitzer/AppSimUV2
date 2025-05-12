@@ -14,12 +14,12 @@ struct MyTabView: View {
     }
     var body: some View {
         TabView{
-            ContentView(location: loc0000)
+            ContentView()
                        .tabItem {
                            Label("Campus", systemImage: "house.fill")
                                .background(Color.white)
                        }
-            AchievementView()
+            AchievementView(achItem: items)
                         .tabItem {
                     Label("Achievements", systemImage: "trophy.fill")
                                 .background(Color.white)

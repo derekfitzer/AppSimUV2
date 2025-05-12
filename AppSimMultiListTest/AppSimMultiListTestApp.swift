@@ -11,7 +11,8 @@ import SwiftUI
 struct AppSimMultiListTestApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            IntroView()
+          //  ContentView()
         }
     }
 }

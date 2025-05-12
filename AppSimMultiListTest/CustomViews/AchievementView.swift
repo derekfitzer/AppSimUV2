@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct AchievementView: View {
-  
-    @State private var images = [Image]()
     
-        let columns = [GridItem(.fixed(100)), GridItem(.fixed(100)), GridItem(.fixed(100)),  GridItem(.fixed(100))]
+    @State var achItem: [Item]
+  
+ 
+    
+        let columns = [GridItem(.fixed(80)), GridItem(.fixed(80)), GridItem(.fixed(80)),  GridItem(.fixed(80))]
         
     var body: some View {
         VStack{
@@ -19,23 +21,25 @@ struct AchievementView: View {
                 Text("Achivements Unlocked")
                     .bold()
                     .font(.system(size: 30))
-                LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(0..<images.count, id: \.self) { index in
-                        images[index]
-                            .resizable()
-                            .frame(width: 100, height: 100)
+                LazyVGrid(columns: columns, spacing: 10) {
+                    ForEach(0..<items.count, id: \.self) { index in
+                        if achItem[index].found {
+                            Image(items[index].itemImage)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        } else {
+                            Image("notFound")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }
                     }
                 }
                 .padding(.horizontal)
             }
-            //            .frame(maxHeight: 350)
             
-            Button("Add 10 Stars") {
-                for _ in 1...25 {
-                    images.append(Image("lockedArtifact"))
-                    
-                }
-                images.append(Image("fitzerart"))
+            Button("Reload") {
+                
+                achItem = items
             }
             .buttonStyle(.bordered)
         }
@@ -43,7 +47,7 @@ struct AchievementView: View {
 }
 
 #Preview {
-    AchievementView()
+    AchievementView(achItem: items)
 }
 
 

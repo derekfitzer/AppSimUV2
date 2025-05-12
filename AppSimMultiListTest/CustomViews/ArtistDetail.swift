@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ArtistDetail: View {
-    @State var location: location
+   // @State var location: location
     var body: some View {
-        
-        Text(location.owner!)
-            .padding()
-        Text("Bio")
+        Text("Placeholder")
+//        Text(location.owner!)
+//            .padding()
+//        Text("Bio")
     }
 }
 
 #Preview {
-    ArtistDetail(location: loc0410)
+    ArtistDetail()
 }

@@ -21,6 +21,16 @@ func playSound(sound: String, type: String) {
     }
 }
 
+func playSoundOneOff(sound: String, type: String) {
+    if let path = Bundle.main.path(forResource: sound, ofType: type) {
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+            audioPlayer?.play()
+        } catch {
+            print("ERROR")
+        }
+    }
+}
 //optional func audioPlayerDidFinishPlaying(
 //    _ player: AVAudioPlayer,
 //    successfully flag: Bool
