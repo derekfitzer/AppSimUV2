@@ -7,7 +7,13 @@
 
 import SwiftUI
 
+class GlobalCurrentLocation: ObservableObject {
+    @Published var locationId = 0
+}
+
 struct ContentView: View {
+    
+    @ObservedObject var loc: GlobalCurrentLocation
 
     @State var currentITBlock = 0
  // @State var currentLocation = 0
@@ -25,17 +31,24 @@ struct ContentView: View {
     var views: [AnyView] = [AnyView(ArchiveView()), AnyView(LockView())] as [AnyView]
     var customView: AnyView = AnyView(UIV())
     var body: some View {
+       
         NavigationView{
             ScrollView{
                 ZStack{
                     // background image
                     
-                    Image(myLocation.bgImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                    
 
+                    
+                   Color.black
+                    
+                        
                     VStack{
+//                        Button {
+//                            loc.locationId = 100
+//                        } label: {
+//                            Text("update")
+//                        }
+
                         // display location title
                         Text(myLocation.locationName)
                             .padding(EdgeInsets(top: 125, leading: 0, bottom: 0, trailing: 0))
@@ -53,7 +66,8 @@ struct ContentView: View {
                             
                         Text(myLocation.blocks[currentITBlock].text)
                             .padding()
-                            .background(Color.white)
+                            .foregroundStyle(Color.white)
+                            
                         
                         // custom actions by block area
                         
@@ -66,23 +80,26 @@ struct ContentView: View {
                                         views[i.goLocation]
                                     } label: {
                                         Text(i.text)
+                                            .accentColor(.black)
                                     }
                                 case .loadCustomView:
                                     NavigationLink {
                                         customView
                                     } label: {
                                         Text(i.text)
+                                            .accentColor(.black)
                                     }
                                 case .loadLocation:
                                     Button {
                                         if let a = seachLoc(location: i.goLocation, locations: locations) {
                                             
                                             myLocation = locations[a]
-                                            
+                                            loc.locationId = a
                                             currentLocationIndex = a
                                             
                                             currentActions = myLocation.actions
-                                            // made 0 to a
+                                           
+                                            
                                             
                                             // PROBLEM HERE! Still Not Fixed
                                             
@@ -107,7 +124,8 @@ struct ContentView: View {
                                         }
                                     } label: {
                                         Text(i.text)
-                                            .foregroundStyle(Color.green)
+                                            .accentColor(.black)
+//                                            .foregroundStyle(Color.green)
                                     }.alert(isPresented: $locAlert) {
                                         Alert(title: Text("Location Error"), message: Text(String(msg404.randomElement() ?? ":-)")), dismissButton: .default(Text("Continue")))
                                     }
@@ -133,8 +151,8 @@ struct ContentView: View {
                                             for i in myLocation.blocks[currentITBlock].actions {
                                                 currentActions.insert(i, at: 0)
                                             }
-                                            
-                                            
+
+                                            playLocalActionSound()
                                          
                                         } else {
                                             currentITBlock = 0
@@ -142,27 +160,39 @@ struct ContentView: View {
                                         
                                     } label: {
                                         Text(i.text)
-                                            .foregroundStyle(Color.orange)
+                                            .accentColor(.black)
+//                                            .foregroundStyle(Color.orange)
                                     }
                                     
                                 }
                             }
                         }
-
+                        .frame(width: 400, height: 400, alignment: .center)
                         .scrollContentBackground(.hidden)
+                        Text("The Campus")
+                      //  .scrollDisabled(true)
+
+                        
 //                        .refreshable {
 //                                   await fetchData()
 //                               }
                     }
+                    
+                           }
                 }// z closes
+                
             } // nav closes
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+               .background {
+                   Color.black.opacity(1)
+                       .ignoresSafeArea()
             .onAppear{
                 // add current actions to actions list
                 currentActions = locations[currentLocationIndex].actions
                 for i in locations[currentLocationIndex].blocks[currentITBlock].actions {
                     currentActions.insert(i, at: 0)
                 }
-                playSound(sound: "room", type: "mp3")
+                playLocationSound(sound: "silence", type: "mp3")
                 
             }
             
@@ -188,6 +218,17 @@ struct ContentView: View {
         return items.firstIndex { $0.itemID == item }
     }
     
+    func playLocalActionSound(){
+        if myLocation.blocks[currentITBlock].sound  != nil {
+            playActionSound(sound: myLocation.blocks[currentITBlock].sound ?? "", type: "mp3")
+    }
+    }
+    func playLocalLocationSound(){
+        if myLocation.blocks[currentITBlock].sound  != nil {
+            playActionSound(sound: myLocation.blocks[currentITBlock].sound ?? "", type: "mp3")
+    }
+    }
+    
 //    func removeClaim()  {
 //// just pulling 0 for now!
 //        currentActions.remove(at: 0)
@@ -196,7 +237,7 @@ struct ContentView: View {
 } // content closes
 
 #Preview {
-    ContentView()
+    ContentView(loc: GlobalCurrentLocation())
 }
 
 

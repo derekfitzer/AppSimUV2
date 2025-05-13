@@ -9,8 +9,10 @@ import Foundation
 import AVFoundation
 
 var audioPlayer: AVAudioPlayer?
+var audioPlayer2: AVAudioPlayer?
+var audioPlayer3: AVAudioPlayer?
 
-func playSound(sound: String, type: String) {
+func playLocationSound(sound: String, type: String) {
     if let path = Bundle.main.path(forResource: sound, ofType: type) {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
@@ -21,11 +23,22 @@ func playSound(sound: String, type: String) {
     }
 }
 
-func playSoundOneOff(sound: String, type: String) {
+func playActionSound(sound: String, type: String) {
     if let path = Bundle.main.path(forResource: sound, ofType: type) {
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
-            audioPlayer?.play()
+            audioPlayer2 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+            audioPlayer2?.play()
+        } catch {
+            print("ERROR")
+        }
+    }
+}
+
+func playGlobalSound(sound: String, type: String) {
+    if let path = Bundle.main.path(forResource: sound, ofType: type) {
+        do {
+            audioPlayer3 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+            audioPlayer3?.play()
         } catch {
             print("ERROR")
         }

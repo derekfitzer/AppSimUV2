@@ -23,7 +23,7 @@ struct ArchiveRandoRoom: View {
                 Text(room.text)
             }
         }.onAppear{
-            playSound(sound: room.sound, type: "mp3")
+            playLocationSound(sound: room.sound, type: "mp3")
         }
         
     }

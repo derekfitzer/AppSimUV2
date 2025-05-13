@@ -190,7 +190,7 @@ struct ContractView: View {
             }
             .navigationBarBackButtonHidden(true)
             .onAppear{
-                playSound(sound: "theCampus3", type: "mp3")
+                playLocationSound(sound: "theCampus3", type: "mp3")
                     
             }
         }

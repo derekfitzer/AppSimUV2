@@ -43,11 +43,11 @@ struct LockView: View {
                         if let r = seachItem(item: whatLock, items: items) {
                             if items[r].found {
                                 alertMessage = "You have unlocked the Archive!"
-                                playSoundOneOff(sound: "unlock", type: "mp3")
+                                playActionSound(sound: "unlock", type: "mp3")
                                 enterAlert.toggle()
                                 open.toggle()
                             } else {
-                                playSoundOneOff(sound: "alarm", type: "mp3")
+                                playActionSound(sound: "alarm", type: "mp3")
                                 enterAlert2.toggle()
                             }
                         }

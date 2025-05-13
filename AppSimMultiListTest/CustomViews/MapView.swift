@@ -10,7 +10,13 @@
 
 import SwiftUI
 
+
+
 struct MapView: View {
+    
+    @StateObject var loc = GlobalCurrentLocation()
+    
+    
     @State var mapOveraly = "mapDrm"
     @State var mapText1 = "Select A Location"
 //    @State var mapText2 = "1st Floor"
@@ -28,7 +34,7 @@ struct MapView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
             VStack{
-                
+                Text(String(loc.locationId))
                 Text(mapText1)
                     .font(.system(size: 30))
                     .bold()

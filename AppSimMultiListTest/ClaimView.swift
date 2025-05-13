@@ -35,7 +35,7 @@ struct ClaimView: View {
             Button {
                
                 items[itemLocation].found = true
-                playSoundOneOff(sound: "unlock", type: "mp3")
+                playActionSound(sound: "unlock", type: "mp3")
                 claimDim = false
                 
             } label: {

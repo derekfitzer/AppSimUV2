@@ -95,7 +95,7 @@ struct ArchiveView: View {
                         Spacer()
                     }
                     .onAppear{
-                        playSound(sound: "archiveMusic", type: "mp3")
+                        playLocationSound(sound: "archiveMusic", type: "mp3")
                         
                     }
                     //.navigationBarBackButtonHidden(true)
