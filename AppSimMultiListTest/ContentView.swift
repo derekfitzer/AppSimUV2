@@ -86,8 +86,13 @@ struct ContentView: View {
                                             
                                             // PROBLEM HERE! Still Not Fixed
                                             
+                                            // have to reset the itblock number before going to a new location
+                                            if currentITBlock >= locations[a].blocks.count {
+                                                currentITBlock = 0
+                                            }
+                                            
                                             if locations[a].blocks[currentITBlock].actions.isEmpty {
-                                                locAlert = true
+//                                                locAlert = true
                                             } else {
                                                 for i in locations[a].blocks[currentITBlock].actions {
                                                     
@@ -95,7 +100,10 @@ struct ContentView: View {
                                                     
                                                 
                                                 }
+//                                                locAlert = true
                                             }
+                                        } else {
+                                            locAlert = true
                                         }
                                     } label: {
                                         Text(i.text)
@@ -105,14 +113,15 @@ struct ContentView: View {
                                     }
                                 case .claim:
                                     if let a = searchItems(item: i.goLocation, items: items) {
-                                        if items[a].found == false {
+//                                        if items[a].found == false {
                                             NavigationLink {
                                                 ClaimView(localItem: i.goLocation)
                                             } label: {
                                                 Text("Claim \(items[a].itemDescription)")
                                             }
-                                        }
+//                                        }
                                     }
+//
                                 case .next:
                                     
                                     Button {
@@ -126,7 +135,7 @@ struct ContentView: View {
                                             }
                                             
                                             
-                                            
+                                         
                                         } else {
                                             currentITBlock = 0
                                         }
