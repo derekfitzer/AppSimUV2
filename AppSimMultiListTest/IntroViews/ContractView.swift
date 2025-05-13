@@ -11,8 +11,15 @@ struct ContractView: View {
     @State var showingAlert = false
     var body: some View {
         ScrollView{
+            NavigationLink {
+                //  ScanView()
+               // ContentView(location: loc0000)
+                MyTabView()
+            } label: {
+                Text("I agree to the CRS terms of service")
+            }
             VStack{
-                Text("Welcome to The Campus: ")
+                Text("Welcome to The Campus:")
                     .font(.system(size: 22))
                     .bold()
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
@@ -169,13 +176,13 @@ struct ContractView: View {
 
                 
                 
-                        NavigationLink {
-                            //  ScanView()
-                           // ContentView(location: loc0000)
-                            MyTabView()
-                        } label: {
-                            Text("I agree to the CRS terms of service")
-                        }
+//                        NavigationLink {
+//                            //  ScanView()
+//                           // ContentView(location: loc0000)
+//                            MyTabView()
+//                        } label: {
+//                            Text("I agree to the CRS terms of service")
+//                        }
                         
                         
                         

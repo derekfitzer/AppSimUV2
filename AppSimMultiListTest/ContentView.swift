@@ -99,7 +99,7 @@ struct ContentView: View {
                                             
                                             currentActions = myLocation.actions
                                            
-                                            
+                                            playLocalLocationSound()
                                             
                                             // PROBLEM HERE! Still Not Fixed
                                             
@@ -224,8 +224,8 @@ struct ContentView: View {
     }
     }
     func playLocalLocationSound(){
-        if myLocation.blocks[currentITBlock].sound  != nil {
-            playActionSound(sound: myLocation.blocks[currentITBlock].sound ?? "", type: "mp3")
+        if myLocation.sound  != nil {
+            playLocationSound(sound: myLocation.sound ?? "", type: "mp3")
     }
     }
     
