@@ -24,6 +24,8 @@ struct ArchiveRandoRoom: View {
             }
         }.onAppear{
             playLocationSound(sound: room.sound, type: "mp3")
+            
+            
         }
         
     }

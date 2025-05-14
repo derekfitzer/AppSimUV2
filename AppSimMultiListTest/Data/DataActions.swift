@@ -8,7 +8,9 @@
 import Foundation
 
 
-// var act0100 = Action(type: .loadLocation, text: "Reaghan Wolford", goLocation:  100)
+
+
+// You can modify you location name here - do not modify goLocation
 
 
 var act0100 = Action(type: .loadLocation, text: "Reaghan Wolford", goLocation: 100)
@@ -79,9 +81,9 @@ var act0740 = Action(type: .loadLocation, text: "VACANT", goLocation: 740)
 
 var act1000 = Action(type: .loadLocation, text: "Commons North Lobby", goLocation: 1000)
 var act2000 = Action(type: .loadLocation, text: "Commons South Lobby", goLocation: 2000)
-var act3000 = Action(type: .loadLocation, text: "Dorms 1st Floor Lobby", goLocation: 3000)
-var act4000 = Action(type: .loadLocation, text: "Dorms 2nd Floor Lobby", goLocation: 4000)
-var act5000 = Action(type: .loadLocation, text: "Dorms 2nd Floor Lobby", goLocation: 5000)
+var act3000 = Action(type: .loadLocation, text: "Dorms 2nd Floor Lobby", goLocation: 3000)
+var act4000 = Action(type: .loadLocation, text: "Dorms 3rd Floor Lobby", goLocation: 4000)
+var act5000 = Action(type: .loadLocation, text: "Dorms 4th Floor Lobby", goLocation: 5000)
 var act6000 = Action(type: .loadLocation, text: "Jerimiah Hall Floor 2 Lobby", goLocation: 6000)
 var act7000 = Action(type: .loadLocation, text: "Jerimiah Hall Floor 3 Lobby", goLocation: 7000)
 

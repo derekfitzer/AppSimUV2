@@ -22,6 +22,7 @@ struct ArchiveView: View {
     
     
     var body: some View {
+        
 //        NavigationView{
             ZStack{
                 Image("jhallArchive")
@@ -78,7 +79,11 @@ struct ArchiveView: View {
                             
                         }.background(Color.white)
                         NavigationLink {
-                            ArchiveRandoRoom(room: rando2)
+                            if pick1 == "4" && pick2 == "0" && pick3 == "4" {
+                                View404()
+                            } else {
+                                ArchiveRandoRoom(room: rando2)
+                            }
                         } label: {
                             Text("Open Destination")
                                 .background(Color.white)

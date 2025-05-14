@@ -7,7 +7,7 @@
 
 import Foundation
 
-var fdf1 = PTBlock(image: "dean1", text: "As Dean of Personas at The Campus, I've witnessed countless anomalies in our simulations, but nothing could have prepared me for what we discovered aboard the Stellar Mind, our AI-powered research vessel.", sound: "silence")
+var fdf1 = PTBlock(image: "dean1", text: "Hello! My name is Franz Fitzer and I a am the Dean of Personas at The Campus, I've witnessed countless anomalies in our simulations, but nothing could have prepared me for what we discovered in the depths of the Campus, our AI-powered research vessel. I'll tell you the story if you have the time.", sound: "silence")
 
 var fdf2 = PTBlock(image: "fdfServerGhost", text: "It started with strange fluctuations in the ship's quantum processors. Students reported seeing fragments of old simulations bleeding into their current sessions - medieval knights appearing in quantum physics classes, ancient philosophers debating with our AI instructors. At first, we attributed it to standard debugging issues..", sound: "fdfSw2")
 
