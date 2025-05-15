@@ -11,13 +11,18 @@ import Foundation
 
 
 
+var loc0470 = Location(mapID: 470, locationName: "App&Sim", bgImage: "", blocks: [ptb0470, ptb0471, ptb0472], actions: [actNext, act1000 ])
 
-
+var ptb0470 = PTBlock(image: "fdfStore", text: "Welcome to the App&Sim. We have information about the program at the South-Western Career Academy in Grove City Ohio. That's back on Earth")
+var ptb0471 = PTBlock(image: "fdfStore", text: "Students in app and sim work with code, 3d, and more.")
+var ptb0472 = PTBlock(image: "fdfStore", text: "Feel free to take a flyer about the program.", actions: [act0472])
+var act0472 = Action(type: .claim, text: "Take Flyer", goLocation: 472)
 
 var loc0000 = Location(mapID: 0, locationName: "Welcome to The Campus", bgImage: "dean1", blocks: [loc0000B1], actions: [act0001, act0002, act0003], sound: "silence")
 var loc0000B1 = PTBlock(image: "dean1", text: "Welcome to the Campus", actions: [])
 
 var loc0001 = Location(mapID: 1, locationName: "Jerimiah Hall", owner: "Mr. Fitzer", bgImage: "jh", blocks: [itbCommons, sampleITB2, sampleITB3], actions: [archiveDoor, act6000,act7000, act0002, act0003 ], sound: "fdfJhallNew")
+
 var act0001 = Action(type: .loadLocation, text: "Jerimiah Hall Lobby", goLocation: 1)
 var act0004 = Action(type: .loadGlobalView, text: "Archive - Lower Level", goLocation: 0)
 //var actARK = Action(type: .claim, text: "Claim Archive Key", goLocation: 410)
@@ -25,13 +30,9 @@ var act0004 = Action(type: .loadGlobalView, text: "Archive - Lower Level", goLoc
 var loc0002 = Location(mapID: 2, locationName: "Blobert Commons", owner: "Mr. Fitzer", bgImage: "commons", blocks: [itbCommons2], actions: [act1000, act2000, act0001, act0003], sound: "fdfCafe" )
 var act0002 = Action(type: .loadLocation, text: "Blobert Commons Lobby", goLocation: 2)
 
-
-
-var loc1000 = Location(mapID: 1000, locationName: "Commons North Hall", owner: "Mr. Fitzer", bgImage: "commons", blocks: [ptb1000], actions: [act0100, act0110, act0120, act0130, act0140, act0002], sound: "fdfCafe" )
+var loc1000 = Location(mapID: 1000, locationName: "Commons North Hall", owner: "Mr. Fitzer", bgImage: "commons", blocks: [ptb1000], actions: [act0470, act0100, act0110, act0120, act0130, act0140, act0002], sound: "fdfCafe" )
 var ptb1000 = PTBlock( image: "fdfJHallLobby2", text: "Commons North Hall", actions: [], sound: "fdfCafe")
 var itbCommons = PTBlock(image: "fdfJHallLobby2", text: "Explore Jerimiah Hall to meet our innovators and entrepreneurs", actions: [a0])
-
-
 
 var loc2000 = Location(mapID: 2000, locationName: "Commons South Hall", owner: "Mr. Fitzer", bgImage: "commons", blocks: [ptb1000], actions: [act0150, act0160, act0170, act0180, act0190, act0002], sound: "fdfCafe" )
 var ptb2000 = PTBlock( image: "fdfJHallLobby2", text: "Commons South Hall", actions: [], sound: "fdfCafe")
@@ -52,7 +53,7 @@ var loc5000 = Location(mapID: 5000, locationName: "Dorms 4th Floor Lobby", bgIma
 var ptb5000 = PTBlock(image: "fdfDormFloor", text: "Welcome to Nieve Dorms 4th Floor Lobby", actions: [], sound: "fdfElevator")
 
 
-var loc0410 = Location(mapID: 410, locationName: "Dean Fitzer's Office", owner: "Mr. Fitzer", bgImage: "commons", blocks: [fdf1,fdf2,fdf3,fdf4,fdf5,fdf6,fdf7], actions: [act0412, act7000], sound: "fdfDeanMusic" )
+
 var loc7000 = Location(mapID: 7000, locationName: "Jerimiah Hall\n3rd Floor lobby", owner: "Fitzer", bgImage: "fdfJHallLobby", blocks: [itb7001], actions: [act0380, act0390, act0400, act0410, act0420, act0001], sound: "fdfElevator")
 var itb7001 = PTBlock(image: "fdfJHallLobby", text: "Welcome to the 3rd Floor Lobby", actions: [])
 //var itb0410 = PTBlock(image: "dean1", text: "Hello, My name is Franz Fitzer. I'm the dean of personas on Campus. I'm glad you can visit, there are some talented and creative students on the Campus", actions: [act0412], sound: "unlock")
@@ -62,7 +63,8 @@ var itb6001 = PTBlock(image: "fdfJHallLobby", text: "Welcome to the 2nd Floor Lo
 
 
 var act0411 = Action(type: .claim, text: "Claim the Archive Key", goLocation: 410)
-var act0412 = Action(type: .next, text: "Next", goLocation: 410)
+var actNext = Action(type: .next, text: "Next", goLocation: 410)
+// var actNext = Action(type: .next, text: "Next", goLocation: 0)
 
 
 var dormLobby = PTBlock(image: "dorms", text: "This is the residence hall for the Campus", actions: [])
@@ -77,3 +79,4 @@ var a3 = Action(type: .loadCustomView, text: "link test 2", goLocation: 0)
 var a4 = Action(type: .claim, text: "claim the item", goLocation: 0)
 var a5 = Action(type: .loadCustomView, text: "grab the coin", goLocation: 1)
 var a0 = Action(type: .next, text: "View Next Item", goLocation: 0)
+

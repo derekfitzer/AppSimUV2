@@ -11,7 +11,7 @@ import SwiftUI
 
 // add your locaion to this array.
 
-var locations: [Location] = [loc0000, loc0001, loc0002, loc0003, loc0410, loc7000, loc3000, loc4000, loc5000, loc6000, loc1000, loc2000]
+var locations: [Location] = [loc0000, loc0001, loc0002, loc0003, loc0410, loc7000, loc3000, loc4000, loc5000, loc6000, loc1000, loc2000, loc0470]
 
 var player1 = Player(playerName: "Mr. Fitzer", items: [], cash: 0)
 
@@ -24,24 +24,27 @@ struct Location: Identifiable {
     var blocks: [PTBlock] // image text combos
     var actions: [Action] = []  // determine what destination action and claim buttons.
     var sound: String? // play this sound when location loads
-    var customLocationLaunch: AnyView?
+//    var customLocationLaunch: AnyView?
     var item: Item?
+    var visited = false
     }
 
 struct Action: Identifiable, Hashable {
     var id = UUID()
     var type: t // see enum below
     var text: String // displayed on list button
-    var goLocation: Int// this will load a location by using a destination number
+    var goLocation: Int// this will load a location or it item by using a destination number
     var loadCustomView: Int? // this will launch a custom view with a back button
     var customSound: String?
-    var hasAlert: Bool?
-    var alertText: String?
+
 }
 
-//var fdfFindArt = Action(type: .claim, text: "Pick up Archive Key", goLocation: 1, hasAlert: true, alertText: "You have found the key to the archive")
+
  
 // types of button interactions
+
+// loadCustomView - load a custom swiftui view using the goLocation as the identifier
+// loadLocation - load a location using the goLocation
 enum t {
 case loadCustomView,loadLocation,claim,next, loadGlobalView
 }
@@ -49,14 +52,21 @@ case loadCustomView,loadLocation,claim,next, loadGlobalView
 
 
 
-
 struct Conspiracy{  // achievements
     var id = UUID()
+    var itemID: Int
     var name: String
-    var requiredItems: [Item]
-    var collectedItems: [Item] = []
-    var textBlocks: [String]
+    var description: String
+    var requiredItemIDs: [Int]
+
+    var textBlocks: [String] // coresponds to collectedItemIDs, revealed with each collected item
+    var AwardItem: Item // item given if all items are collected.
+    var claimed = false
+    
+    
 }
+
+
 
 struct PTBlock: Identifiable, Hashable {
     var id = UUID()
@@ -64,23 +74,23 @@ struct PTBlock: Identifiable, Hashable {
     var text: String
     var actions: [Action] = []
     var sound: String?
+    
 }
 
 struct Player{
     var playerName: String
     var items: [Int]
     var cash: Int
+    var visitedLocations = 0
 }
 
 struct Student{
     var studentName: String
-    var resume: Resume
+   // var resume: Resume
     var portfolio: [PTBlock]
 }
 
-struct Resume {
-    
-}
+
 
 // 404 missing location error flavor text.
 

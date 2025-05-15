@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// DO NOT MODIFY THE CONTENT VIEW!
+
 class GlobalCurrentLocation: ObservableObject {
     @Published var locationId = 0
 }
@@ -92,7 +94,7 @@ struct ContentView: View {
                                 case .loadLocation:
                                     Button {
                                         if let a = seachLoc(location: i.goLocation, locations: locations) {
-                                            
+                                            locations[a].visited = true
                                             myLocation = locations[a]
                                             loc.locationId = a
                                             currentLocationIndex = a
@@ -135,7 +137,7 @@ struct ContentView: View {
                                             NavigationLink {
                                                 ClaimView(localItem: i.goLocation)
                                             } label: {
-                                                Text("Claim \(items[a].itemDescription)")
+                                                Text("Claim \(items[a].name)")
                                             }
 //                                        }
                                     }

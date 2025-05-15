@@ -38,6 +38,7 @@ struct ClaimView: View {
                 playActionSound(sound: "unlock", type: "mp3")
                 claimDim = false
                 
+                
             } label: {
                 Text("Claim")
             }.opacity(claimDim ? 1.0 : 0)
@@ -58,6 +59,10 @@ struct ClaimView: View {
         return items.firstIndex { $0.itemID == item }
     }
 }
+
+// see if involved in con
+// if invovled check if all items have been found
+// give feedback to user that items were found as part of con.
 
 #Preview {
     ClaimView(localItem: 410)

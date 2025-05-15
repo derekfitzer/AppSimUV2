@@ -8,6 +8,8 @@
 import Foundation
 import AVFoundation
 
+// DO NOT MODIFY THE SOUND PLAYER!
+
 var audioPlayer: AVAudioPlayer?
 var audioPlayer2: AVAudioPlayer?
 var audioPlayer3: AVAudioPlayer?
