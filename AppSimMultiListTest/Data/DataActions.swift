@@ -14,7 +14,7 @@ import Foundation
 
 
 var act0100 = Action(type: .loadLocation, text: "Reaghan Wolford", goLocation: 100)
-var act0110 = Action(type: .loadLocation, text: "peyton ", goLocation: 110)
+var act0110 = Action(type: .loadLocation, text: "Peyton", goLocation: 110)
 var act0120 = Action(type: .loadLocation, text: "Brayden Bonnell-Wright", goLocation: 120)
 var act0130 = Action(type: .loadLocation, text: "vitalina", goLocation: 130)
 var act0140 = Action(type: .loadLocation, text: "VACANT - App and Sim Booth", goLocation: 140)
@@ -54,7 +54,7 @@ var act0460 = Action(type: .loadLocation, text: "alexia aguilar", goLocation: 46
 
 // Custom locations
 var act0470 = Action(type: .loadLocation, text: "App&Sim on Campus", goLocation: 470)
-var act0480 = Action(type: .loadLocation, text: "VACANT", goLocation: 480)
+var act0480 = Action(type: .loadLocation, text: "Custodial Closet", goLocation: 480)
 var act0490 = Action(type: .loadLocation, text: "VACANT", goLocation: 490)
 var act0500 = Action(type: .loadLocation, text: "VACANT", goLocation: 500)
 var act0510 = Action(type: .loadLocation, text: "VACANT", goLocation: 510)
@@ -93,6 +93,7 @@ var act7000 = Action(type: .loadLocation, text: "Jerimiah Hall Floor 3 Lobby", g
 // one off actions
 
 var archiveDoor = Action(type: .loadGlobalView, text: "Enter The Archive", goLocation: 1)
+
 
 
 

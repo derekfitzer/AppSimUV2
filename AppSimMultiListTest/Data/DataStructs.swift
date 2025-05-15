@@ -11,7 +11,15 @@ import SwiftUI
 
 // add your locaion to this array.
 
-var locations: [Location] = [loc0000, loc0001, loc0002, loc0003, loc0410, loc7000, loc3000, loc4000, loc5000, loc6000, loc1000, loc2000, loc0470]
+var locations: [Location] = [loc0000, loc0001, loc0002, loc0003, loc0410, loc7000, loc3000, loc4000, loc5000, loc6000, loc1000, loc2000, loc0470, loc0480]
+
+var items: [Item] = [item0410, itemfdf404, itemfdfDucky, item0472, item1001, fdfItem0480]
+
+
+
+
+
+
 
 var player1 = Player(playerName: "Mr. Fitzer", items: [], cash: 0)
 
@@ -19,19 +27,16 @@ struct Location: Identifiable {
     var id = UUID()
     var mapID: Int //this is the XXXX number from the DestinationsData View
     var locationName: String
-    var owner: String? // student name
-    var bgImage: String // this is the background image for your location
     var blocks: [PTBlock] // image text combos
     var actions: [Action] = []  // determine what destination action and claim buttons.
     var sound: String? // play this sound when location loads
 //    var customLocationLaunch: AnyView?
-    var item: Item?
-    var visited = false
+    var visited = false // this will change to true when your location is visited.
     }
 
 struct Action: Identifiable, Hashable {
-    var id = UUID()
-    var type: t // see enum below
+    var id = UUID() // Needed for list views do not modify.
+    var type: actionType // Type of action - see enum below
     var text: String // displayed on list button
     var goLocation: Int// this will load a location or it item by using a destination number
     var loadCustomView: Int? // this will launch a custom view with a back button
@@ -45,7 +50,7 @@ struct Action: Identifiable, Hashable {
 
 // loadCustomView - load a custom swiftui view using the goLocation as the identifier
 // loadLocation - load a location using the goLocation
-enum t {
+enum actionType {
 case loadCustomView,loadLocation,claim,next, loadGlobalView
 }
 
@@ -58,15 +63,10 @@ struct Conspiracy{  // achievements
     var name: String
     var description: String
     var requiredItemIDs: [Int]
-
     var textBlocks: [String] // coresponds to collectedItemIDs, revealed with each collected item
     var AwardItem: Item // item given if all items are collected.
     var claimed = false
-    
-    
 }
-
-
 
 struct PTBlock: Identifiable, Hashable {
     var id = UUID()

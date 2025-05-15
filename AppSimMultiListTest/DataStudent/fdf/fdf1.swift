@@ -9,7 +9,7 @@ import Foundation
 
 // Your Location - Get the ID from DataActions!
 
-var loc0410 = Location(mapID: 410, locationName: "Dean Fitzer's Office", owner: "Mr. Fitzer", bgImage: "commons", blocks: [fdf1,fdf2,fdf3,fdf4,fdf5,fdf6,fdf7], actions: [actNext, act7000], sound: "fdfDeanMusic" )
+var loc0410 = Location(mapID: 410, locationName: "Dean Fitzer's Office",blocks: [fdf1,fdf2,fdf3,fdf4,fdf5,fdf6,fdf7], actions: [actNext, act7000], sound: "fdfDeanMusic" )
 
 // Picture and Text Blocks for your location
 

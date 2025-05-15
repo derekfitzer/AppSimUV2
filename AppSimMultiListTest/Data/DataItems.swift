@@ -28,7 +28,7 @@ struct Item{
 // 0 archive key
 
 
-var items: [Item] = [item0410, itemfdf404, itemfdfDucky, item0472, item1001]
+
 
 
 
