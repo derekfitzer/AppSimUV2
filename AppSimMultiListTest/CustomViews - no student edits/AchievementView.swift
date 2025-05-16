@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 extension Array where Element: Hashable {
     func difference(from other: [Element]) -> [Element] {
         let thisSet = Set(self)
@@ -16,8 +17,13 @@ extension Array where Element: Hashable {
 }
 
 struct AchievementView: View {
+    
+    @EnvironmentObject var appState: AppState
+    
+//    @StateObject private var appState = AppState()
+    
     @State var visitedLoc = 0
-    @State var achItem: [Item]
+//    @State var achItem: [Item]
     @State var showFoundItemAlert = false
     @State var showMysteryItemAlert = false
     @State var itemIndex = 0
@@ -35,35 +41,35 @@ struct AchievementView: View {
                 Text("Achivements Unlocked")
                     .bold()
                     .font(.system(size: 30))
-                Text("You have visited \(visitedLoc) of \(String(locations.count)) locations")
+                Text("You have visited \(visitedLoc) of \(String(appState.pLocations.count)) locations")
                     .font(.system(size: 11))
                 Text("You have revealed 0 of \(conspracies.count) Conspiracies in the Campus")
                     .font(.system(size: 11))
-                Text("You have found \(findItemCount()) of \(items.count) items.")
+                Text("You have found \(findItemCount()) of \(appState.pItems.count) items.")
                     .font(.system(size: 11))
                     .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0))
                 LazyVGrid(columns: columns, spacing: 2) {
-                    ForEach(0..<items.count, id: \.self) { index in
+                    ForEach(0..<appState.pItems.count, id: \.self) { index in
                         
-                        if achItem[index].found {
+                        if appState.pItems[index].found {
                             
-                            Image(items[index].itemImage)
+                            Image(appState.pItems[index].itemImage)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .onTapGesture {
-                                    itemDescription = items[index].itemDescription
-                                    itemName = items[index].name
+                                    itemDescription = appState.pItems[index].itemDescription
+                                    itemName = appState.pItems[index].name
                                     showMysteryItemAlert = true
                                 }
                         } else {
                             
-                            Image(items[index].itemImage)
+                            Image(appState.pItems[index].itemImage)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .opacity(0.2)
                                 .onTapGesture {
                                    
-                                    itemDescription = items[index].name
+                                    itemDescription = appState.pItems[index].name
                                     itemName = "Missing Achievement"
                                     showMysteryItemAlert = true
                                     
@@ -82,19 +88,19 @@ struct AchievementView: View {
                     Alert(title: Text(itemName), message: Text(itemDescription), dismissButton: .default(Text("OK")))
                         }
                 
-                Button("Reload") {
-                    
-                    checkVisited()
-                    checkConspiracy(whatCon: consp0410)
-                    achItem = items
-                }
-                .buttonStyle(.bordered)
+//                Button("Reload") {
+//                    
+//                    checkVisited()
+//                    checkConspiracy(whatCon: consp0410)
+//                   // achItem = appState.pItems
+//                }
+//                .buttonStyle(.bordered)
             }
         }
     }
     func checkVisited(){
         var count = 0
-        for v in locations {
+        for v in appState.pLocations {
             if v.visited {
                 count += 1
             }
@@ -103,57 +109,63 @@ struct AchievementView: View {
         visitedLoc = player1.visitedLocations
         print(count)
     }
-
-}
-
-func findItemCount() -> Int{
-    var c = 0
-    for i in items {
-        if i.found {
-            c += 1
-        }
-    }
-    return c
-}
-
-func checkConspiracy(whatCon: Conspiracy) {
-    var y: [Int] = []
-    for m in items {
-        if m.found == true {
-            y.append(m.itemID)
-        }
-    }
-    y.sort()
-    var x = whatCon.requiredItemIDs
-    x.sort()
-
-    let difference = y.difference(from: x)
-    if difference.isEmpty {
-       // items[searchItems(item: whatCon.itemID)!].found = true
-        if whatCon.claimed == false {
-           
-          //  items.append(item1001)
-            if let i = searchItems(item: whatCon.itemID) {
-                items[i].found = true
-                playActionSound(sound: "fdfTada", type: "mp3")
-            } else {
-                print("nope")
+    // func here
+    func findItemCount() -> Int{
+        var c = 0
+        for i in appState.pItems {
+            if i.found {
+                c += 1
             }
         }
-    } else {
-        
+        return c
     }
+    
+    func checkConspiracy(whatCon: Conspiracy) {
+        var y: [Int] = []
+        for m in appState.pItems {
+            if m.found == true {
+                y.append(m.itemID)
+            }
+        }
+        y.sort()
+        var x = whatCon.requiredItemIDs
+        x.sort()
+
+        let difference = y.difference(from: x)
+        if difference.isEmpty {
+           // items[searchItems(item: whatCon.itemID)!].found = true
+            if whatCon.claimed == false {
+               
+              //  items.append(item1001)
+                if let i = searchItems(item: whatCon.itemID) {
+                    appState.pItems[i].found = true
+                    playActionSound(sound: "fdfTada", type: "mp3")
+                } else {
+                    print("nope")
+                }
+            }
+        } else {
+            
+        }
+    }
+    func searchItems(item: Int) -> Int? {
+        return appState.pItems.firstIndex {$0.itemID == item}
+    }
+
 }
 
 
 
 
-func searchItems(item: Int) -> Int? {
-    return items.firstIndex {$0.itemID == item}
-}
+
+
+
+
+
 
 #Preview {
-    AchievementView(achItem: items)
+    AchievementView()
+        .environmentObject(AppState())
 }
 
 

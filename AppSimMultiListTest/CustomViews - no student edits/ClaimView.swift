@@ -15,6 +15,7 @@ struct ClaimView: View {
     @State var itemLocation = 0
     @State var claimDim = true
     
+    @EnvironmentObject var appState: AppState
     
     var body: some View {
         VStack{
@@ -34,7 +35,7 @@ struct ClaimView: View {
                 .opacity(claimDim ? 0.2 : 1)
             Button {
                
-                items[itemLocation].found = true
+                appState.pItems[itemLocation].found = true
                 playActionSound(sound: "unlock", type: "mp3")
                 claimDim = false
                 
@@ -43,8 +44,8 @@ struct ClaimView: View {
                 Text("Claim")
             }.opacity(claimDim ? 1.0 : 0)
         }.onAppear{
-            if let f = searchItems(item: localItem, items: items) {
-                let item = items[f]
+            if let f = searchItems(item: localItem, items: appState.pItems) {
+                let item = appState.pItems[f]
                 image = item.itemImage
                 desc = item.itemDescription
                 name = item.name

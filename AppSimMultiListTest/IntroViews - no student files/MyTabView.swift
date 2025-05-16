@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import Combine
+
+
 
 struct MyTabView: View {
     init() {
@@ -13,13 +16,16 @@ struct MyTabView: View {
       //  UITabBar.appearance().barTintColor = UIColor.green
     }
     var body: some View {
+        
+        
+        
         TabView{
             ContentView(loc: GlobalCurrentLocation())
                        .tabItem {
                            Label("Campus", systemImage: "house.fill")
                                .background(Color.white)
                        }
-            AchievementView(achItem: items)
+            AchievementView()
                         .tabItem {
                     Label("Achievements", systemImage: "trophy.fill")
                                 .background(Color.white)

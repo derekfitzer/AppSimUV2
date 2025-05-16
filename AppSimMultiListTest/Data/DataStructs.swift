@@ -11,19 +11,27 @@ import SwiftUI
 
 // add your locaion to this array.
 
-var locations: [Location] = [loc0000, loc0001, loc0002, loc0003, loc0410, loc7000, loc3000, loc4000, loc5000, loc6000, loc1000, loc2000, loc0470, loc0480, loc0490]
-
-var items: [Item] = [item0410, itemfdf404, itemfdfDucky, item0472, item1001, fdfItem0480, fdfItem0490]
+//var locations: [Location] = [loc0000, loc0001, loc0002, loc0003, loc0410, loc7000, loc3000, loc4000, loc5000, loc6000, loc1000, loc2000, loc0470, loc0480, loc0490]
 
 
-
-
+// move items to AppState
+//var items: [Item] = [item0410, itemfdf404, itemfdfDucky, item0472, item1001, fdfItem0480, fdfItem0490, itemfdfArcade, itemfdfBinary]
 
 
 
+class AppState: ObservableObject {
+    @Published var pItems: [Item] = [item0410, itemfdf404, itemfdfDucky, item0472, item1001, fdfItem0480, fdfItem0490, itemfdfArcade, itemfdfBinary]
+//    @Published var userName: String = "Derek"
+    @Published var pLocations: [Location] = [loc0000, loc0001, loc0002, loc0003, loc0410, loc7000, loc3000, loc4000, loc5000, loc6000, loc1000, loc2000, loc0470, loc0480, loc0490]
+    @Published var pCurrentLocation = 0
+}
 
 
-var player1 = Player(playerName: "Mr. Fitzer", items: [], cash: 0)
+
+
+
+
+var player1 = Player(playerName: "Mr. Fitzer", items: [], cash: 20)
 
 struct Location: Identifiable {
     var id = UUID()
@@ -97,3 +105,17 @@ struct Student{
 // 404 missing location error flavor text.
 
 var msg404 = ["kerrerd fis napp rost pllea e4aas thi 23lskkkdd","We appologise but the requested location is offline. Please contact Campus IT to report missing, disruptive, fradulent or hostile enviornments. \n\nHave a wonderful day on the Campus","We apologize but the requested location is currently experiencing a temporal shift. Please try your request later.\n\nThe Campus is Glad You Are Here","Due to high volumes of location requests your location has been shifted to an alternate universe buffer, please check back later.\n\nThe Campus Loves You","Error ID 7939210 print(someone, anyone, save us from CROG)\n\nThe Campus - Your Home Away from Home","🤡\n\nThe Campus\nYou Can Never Leave","Integrity Buffer Overrun Error 867: The requested location has experienced an morality violation. Please try again later.\n\nThe Campus YES!","The voicemail box for location has not been set up. Please try again later.\n\nThe Campus\nYou Cant Call Home"]
+
+
+struct Purchase: Identifiable, Hashable{
+    var id = UUID()
+    var itemName: String
+    var itemImage: String
+    var itemCost: Int
+    var owned = false
+}
+
+
+
+var fdfPurch0010 = Purchase(itemName: "Orange Fanta", itemImage: "fdfFanta", itemCost: 10)
+var purchases: [Purchase] = [fdfPurch0010]

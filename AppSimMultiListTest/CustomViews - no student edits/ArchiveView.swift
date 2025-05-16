@@ -81,6 +81,8 @@ struct ArchiveView: View {
                         NavigationLink {
                             if pick1 == "4" && pick2 == "0" && pick3 == "4" {
                                 View404()
+                            } else if pick1 == "9" && pick2 == "A" && pick3 == "3"  {
+                                ClaimView(localItem: 490)
                             } else {
                                 ArchiveRandoRoom(room: rando2)
                             }
@@ -90,11 +92,11 @@ struct ArchiveView: View {
                         }
 
                         
-                        Button {
-                            dismiss()
-                        } label: {
-                            Text("Dismiss")
-                        }
+//                        Button {
+//                            dismiss()
+//                        } label: {
+//                            Text("Dismiss")
+//                        }
 
                         
                         Spacer()

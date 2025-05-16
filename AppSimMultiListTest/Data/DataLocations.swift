@@ -9,8 +9,6 @@ import Foundation
 
 // DO NOT PLACE STUDENT LOCATIONS IN THIS FILE!!!!!
 
-
-
 var loc0470 = Location(mapID: 470, locationName: "App&Sim", blocks: [ptb0470, ptb0471, ptb0472], actions: [actNext, act1000 ])
 
 var ptb0470 = PTBlock(image: "fdfStore", text: "Welcome to the App&Sim. We have information about the program at the South-Western Career Academy in Grove City Ohio. That's back on Earth")
@@ -30,7 +28,7 @@ var act0004 = Action(type: .loadGlobalView, text: "Archive - Lower Level", goLoc
 var loc0002 = Location(mapID: 2, locationName: "Blobert Commons",  blocks: [itbCommons2], actions: [act1000, act2000, act0001, act0003], sound: "fdfCafe" )
 var act0002 = Action(type: .loadLocation, text: "Blobert Commons Lobby", goLocation: 2)
 
-var loc1000 = Location(mapID: 1000, locationName: "Commons North Hall",  blocks: [ptb1000], actions: [act0470, act0100, act0110, act0120, act0130, act0140, act0002], sound: "fdfCafe" )
+var loc1000 = Location(mapID: 1000, locationName: "Commons North Hall",  blocks: [ptb1000], actions: [act0470, act0100, act0110, act0120, act0130, act0510, act0002], sound: "fdfCafe" )
 var ptb1000 = PTBlock( image: "fdfJHallLobby2", text: "Commons North Hall", actions: [], sound: "fdfCafe")
 var itbCommons = PTBlock(image: "fdfJHallLobby2", text: "Explore Jerimiah Hall to meet our innovators and entrepreneurs", actions: [a0])
 
@@ -79,4 +77,5 @@ var a3 = Action(type: .loadCustomView, text: "link test 2", goLocation: 0)
 var a4 = Action(type: .claim, text: "claim the item", goLocation: 0)
 var a5 = Action(type: .loadCustomView, text: "grab the coin", goLocation: 1)
 var a0 = Action(type: .next, text: "View Next Item", goLocation: 0)
+
 

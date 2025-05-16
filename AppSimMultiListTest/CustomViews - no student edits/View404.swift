@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct View404: View {
+    @EnvironmentObject var appState: AppState
+    
+    
     var body: some View {
         Text("Welcome to the 404 view!")
         
@@ -20,6 +23,4 @@ struct View404: View {
     }
 }
 
-#Preview {
-    View404()
-}
+

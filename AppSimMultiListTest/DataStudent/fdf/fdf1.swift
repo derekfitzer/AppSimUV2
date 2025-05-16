@@ -34,6 +34,8 @@ var fdf6 = PTBlock(image: "fdfShip", text: "As our ship drifts through the void 
 var item0410 = Item(name: "Key to the Archives", itemID: 410, itemDescription: "Ornate Gold Key\nThis key unlocks the Archives in the basement of Jerimiah Hall", itemImage: "410Item", found: false)
 
 
+
+
 // add Conspiracy if you have created one.
 
 var consp0410 = Conspiracy(itemID: 410, name: "Just Getting Started", description: "Place clues, description and flavor text here", requiredItemIDs: [404,410],  textBlocks: ["1 of 2 items found!","Hmm... lets find some code to go with that."], AwardItem: item1001)

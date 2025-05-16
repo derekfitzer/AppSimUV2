@@ -15,7 +15,7 @@ import SwiftUI
 struct MapView: View {
     
     @StateObject var loc = GlobalCurrentLocation()
-    
+    @EnvironmentObject var appState: AppState
     
     @State var mapOveraly = "mapDrm"
     @State var mapText1 = "Select A Location"

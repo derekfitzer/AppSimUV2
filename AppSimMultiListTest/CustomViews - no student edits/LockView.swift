@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LockView: View {
+    
+    @EnvironmentObject var appState: AppState
     @State var whatLock = 410
     @State var lockImage = "locked"
     @State var enterAlert = false
@@ -40,8 +42,8 @@ struct LockView: View {
                     
                     Button {
                         
-                        if let r = seachItem(item: whatLock, items: items) {
-                            if items[r].found {
+                        if let r = seachItem(item: whatLock, items: appState.pItems) {
+                            if appState.pItems[r].found {
                                 alertMessage = "You have unlocked the Archive!"
                                 playActionSound(sound: "unlock", type: "mp3")
                                 enterAlert.toggle()
