@@ -11,9 +11,11 @@ import SwiftUI
 
 // add your locaion to this array.
 
-var locations: [Location] = [loc0000, loc0001, loc0002, loc0003, loc0410, loc7000, loc3000, loc4000, loc5000, loc6000, loc1000, loc2000, loc0470, loc0480]
+var locations: [Location] = [loc0000, loc0001, loc0002, loc0003, loc0410, loc7000, loc3000, loc4000, loc5000, loc6000, loc1000, loc2000, loc0470, loc0480, loc0490]
 
-var items: [Item] = [item0410, itemfdf404, itemfdfDucky, item0472, item1001, fdfItem0480]
+var items: [Item] = [item0410, itemfdf404, itemfdfDucky, item0472, item1001, fdfItem0480, fdfItem0490]
+
+
 
 
 

@@ -57,7 +57,7 @@ var ptb5000 = PTBlock(image: "fdfDormFloor", text: "Welcome to Nieve Dorms 4th F
 var loc7000 = Location(mapID: 7000, locationName: "Jerimiah Hall\n3rd Floor lobby", blocks: [itb7001], actions: [act0380, act0390, act0400, act0410, act0420, act0001], sound: "fdfElevator")
 var itb7001 = PTBlock(image: "fdfJHallLobby", text: "Welcome to the 3rd Floor Lobby", actions: [])
 //var itb0410 = PTBlock(image: "dean1", text: "Hello, My name is Franz Fitzer. I'm the dean of personas on Campus. I'm glad you can visit, there are some talented and creative students on the Campus", actions: [act0412], sound: "unlock")
-var loc6000 = Location(mapID: 6000, locationName: "Jerimiah Hall\n2nd Floor lobby", blocks: [itb6001], actions: [act0430, act0440, act0450, act0460, act0470, act0480, act0001], sound: "fdfElevator")
+var loc6000 = Location(mapID: 6000, locationName: "Jerimiah Hall\n2nd Floor lobby", blocks: [itb6001], actions: [act0430, act0440, act0450, act0460, act0470, act0480, act0001, act0490], sound: "fdfElevator")
 var itb6001 = PTBlock(image: "fdfJHallLobby", text: "Welcome to the 2nd Floor Lobby", actions: [])
 //var itb0410 = PTBlock(image: "dean1", text: "Hello, My name is Franz Fitzer. I'm the dean of personas on Campus. I'm glad you can visit, there are some talented and creative students on the Campus", actions: [act0412], sound: "unlock")
 

@@ -55,7 +55,7 @@ var act0460 = Action(type: .loadLocation, text: "alexia aguilar", goLocation: 46
 // Custom locations
 var act0470 = Action(type: .loadLocation, text: "App&Sim on Campus", goLocation: 470)
 var act0480 = Action(type: .loadLocation, text: "Custodial Closet", goLocation: 480)
-var act0490 = Action(type: .loadLocation, text: "VACANT", goLocation: 490)
+var act0490 = Action(type: .loadLocation, text: "T. Gunderson - Persona Conversion", goLocation: 490)
 var act0500 = Action(type: .loadLocation, text: "VACANT", goLocation: 500)
 var act0510 = Action(type: .loadLocation, text: "VACANT", goLocation: 510)
 var act0520 = Action(type: .loadLocation, text: "VACANT", goLocation: 520)
