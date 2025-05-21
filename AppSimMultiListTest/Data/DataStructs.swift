@@ -21,14 +21,33 @@ import SwiftUI
 
 class AppState: ObservableObject {
     @Published var pItems: [Item] = [item0410, itemfdf404, itemfdfDucky, item0472, item1001, fdfItem0480, fdfItem0490, itemfdfArcade, itemfdfBinary]
-//    @Published var userName: String = "Derek"
+
     @Published var pLocations: [Location] = [loc0000, loc0001, loc0002, loc0003, loc0410, loc7000, loc3000, loc4000, loc5000, loc6000, loc1000, loc2000, loc0470, loc0480, loc0490]
-    @Published var pCurrentLocation = 0
+    @Published var pCurrentLocation = 0 // go location number
+    @Published var currentLocationIndex = 0 // array position
+    @Published var currentActions: [Action] = [act0001,act0002,act0003, actNext]
+    @Published var currentITBlock = 0
+    @Published var customLocations: [CustomLocation] = [cl1]
+    
 }
 
+let cl1 = CustomLocation(goLocation: 404, name: "Load 404", whatView: AnyView(View404()))
+//let cl2 = CustomLocation(goLocation: 404, name: "Load 404", whatView: AnyView(View404()))
 
 
-
+class CustomLocation{
+    var id = UUID()
+    var goLocation: Int = 0
+    var name: String
+    var whatView: AnyView
+    
+    init(id: UUID = UUID(), goLocation: Int, name: String, whatView: AnyView) {
+        self.id = id
+        self.goLocation = goLocation
+        self.name = name
+        self.whatView = whatView
+    }
+}
 
 
 var player1 = Player(playerName: "Mr. Fitzer", items: [], cash: 20)
@@ -42,6 +61,7 @@ struct Location: Identifiable {
     var sound: String? // play this sound when location loads
 //    var customLocationLaunch: AnyView?
     var visited = false // this will change to true when your location is visited.
+    
     }
 
 struct Action: Identifiable, Hashable {
@@ -51,6 +71,7 @@ struct Action: Identifiable, Hashable {
     var goLocation: Int// this will load a location or it item by using a destination number
     var loadCustomView: Int? // this will launch a custom view with a back button
     var customSound: String?
+    
 
 }
 
@@ -99,7 +120,6 @@ struct Student{
    // var resume: Resume
     var portfolio: [PTBlock]
 }
-
 
 
 // 404 missing location error flavor text.

@@ -44,21 +44,26 @@ struct ClaimView: View {
                 Text("Claim")
             }.opacity(claimDim ? 1.0 : 0)
         }.onAppear{
-            if let f = searchItems(item: localItem, items: appState.pItems) {
-                let item = appState.pItems[f]
-                image = item.itemImage
-                desc = item.itemDescription
-                name = item.name
-                itemLocation = f
-            } else {
-                name = "Invalid Item"
-            }
+//            if let f = searchItems(item: localItem, items: appState.pItems) {
+//                let item = appState.pItems[f]
+//                image = item.itemImage
+//                desc = item.itemDescription
+//                name = item.name
+//                itemLocation = f
+//            } else {
+//                name = "Invalid Item"
+//            }
+            let item = appState.pItems[localItem]
+            image = item.itemImage
+            desc = item.itemDescription
+            name = item.name
+            itemLocation = localItem
         }
     }
     
-    func searchItems(item: Int, items: [Item]) -> Int? {
-        return items.firstIndex { $0.itemID == item }
-    }
+//    func searchItems(item: Int, items: [Item]) -> Int? {
+//        return appState.pItems.firstIndex { $0.itemID == item }
+//    }
 }
 
 // see if involved in con

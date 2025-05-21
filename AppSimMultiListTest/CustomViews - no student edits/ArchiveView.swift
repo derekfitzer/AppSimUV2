@@ -115,9 +115,9 @@ struct ArchiveView: View {
     }
 //}
 
-//#Preview {
-//    ArchiveView()
-//}
+#Preview {
+    ArchiveView()
+}
 
 
 struct archiveRandoRoom{

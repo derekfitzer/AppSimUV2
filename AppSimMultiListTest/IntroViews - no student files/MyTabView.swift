@@ -20,7 +20,7 @@ struct MyTabView: View {
         
         
         TabView{
-            ContentView(loc: GlobalCurrentLocation())
+            ContentView()
                        .tabItem {
                            Label("Campus", systemImage: "house.fill")
                                .background(Color.white)

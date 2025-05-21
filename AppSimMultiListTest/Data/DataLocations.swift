@@ -16,13 +16,13 @@ var ptb0471 = PTBlock(image: "fdfStore", text: "Students in app and sim work wit
 var ptb0472 = PTBlock(image: "fdfStore", text: "Feel free to take a flyer about the program.", actions: [act0472])
 var act0472 = Action(type: .claim, text: "Take Flyer", goLocation: 472)
 
-var loc0000 = Location(mapID: 0, locationName: "Welcome to The Campus",blocks: [loc0000B1], actions: [act0001, act0002, act0003], sound: "silence")
+var loc0000 = Location(mapID: 0, locationName: "Welcome to The Campus",blocks: [loc0000B1, ptb3000], actions: [act0001, act0002, act0003, actNext], sound: "silence")
 var loc0000B1 = PTBlock(image: "dean1", text: "Welcome to the Campus", actions: [])
 
 var loc0001 = Location(mapID: 1, locationName: "Jerimiah Hall", blocks: [itbCommons, sampleITB2, sampleITB3], actions: [archiveDoor, act6000,act7000, act0002, act0003 ], sound: "fdfJhallNew")
 
 var act0001 = Action(type: .loadLocation, text: "Jerimiah Hall Lobby", goLocation: 1)
-var act0004 = Action(type: .loadGlobalView, text: "Archive - Lower Level", goLocation: 0)
+var act0004 = Action(type: .loadCustomView, text: "Archive - Lower Level", goLocation: 404)
 //var actARK = Action(type: .claim, text: "Claim Archive Key", goLocation: 410)
 
 var loc0002 = Location(mapID: 2, locationName: "Blobert Commons",  blocks: [itbCommons2], actions: [act1000, act2000, act0001, act0003], sound: "fdfCafe" )

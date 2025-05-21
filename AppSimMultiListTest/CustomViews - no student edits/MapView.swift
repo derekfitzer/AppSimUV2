@@ -14,7 +14,7 @@ import SwiftUI
 
 struct MapView: View {
     
-    @StateObject var loc = GlobalCurrentLocation()
+//    @StateObject var loc = GlobalCurrentLocation()
     @EnvironmentObject var appState: AppState
     
     @State var mapOveraly = "mapDrm"
@@ -34,7 +34,7 @@ struct MapView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fill)
             VStack{
-                Text(String(loc.locationId))
+            //    Text(String(loc.locationId))
                 Text(mapText1)
                     .font(.system(size: 30))
                     .bold()
@@ -51,29 +51,40 @@ struct MapView: View {
                     switch mapText1 {
                                         case "Commons" :
                                             mapOveraly = locationImages[0]
+                                            updateLocation(whatLoc: 2)
+                                
                                         case "Commons North" :
                                             mapOveraly = locationImages[1]
+                                            updateLocation(whatLoc: 1000)
                                         case "Commons South" :
                                             mapOveraly = locationImages[2]
+                                            updateLocation(whatLoc: 2000)
                                         case "Dorm Lobby" :
                                             mapOveraly = locationImages[3]
+                                            updateLocation(whatLoc: 3)
                                         case "Dorms 2nd Floor" :
                                             mapOveraly = locationImages[4]
+                                            updateLocation(whatLoc: 3000)
                                         case "Dorms 3rd Floor" :
                                             mapOveraly = locationImages[5]
+                                            updateLocation(whatLoc: 4000)
                                         case "Dorms 4th Floor" :
                                             mapOveraly = locationImages[6]
+                                            updateLocation(whatLoc: 5000)
                                         case "J Hall":
                                             mapOveraly = locationImages[7]
+                                            updateLocation(whatLoc: 1)
                                         case "J Hall 2nd Floor":
                                             mapOveraly = locationImages[8]
+                                            updateLocation(whatLoc: 6000)
                                         case "J Hall 3rd Floor":
                                             mapOveraly = locationImages[9]
+                                            updateLocation(whatLoc: 7000)
                         
                                         default:
                                             mapOveraly = locationImages[0]
                     
-                    //                        "Commons","Commons North","Commons South", "Dorm Lobby","Dorms 1st Floor","Dorms 2nd Floor","Dorms 3rd Floor", "J Hall", "J Hall 2nd Floor","J Hall 3rd Floor"
+
                                         }
                     
                     
@@ -85,9 +96,22 @@ struct MapView: View {
                 
                 Spacer()
             }.padding(EdgeInsets(top: 90, leading: 0, bottom: 0, trailing: 120))
+            
+            
         }
         
     }
+    func updateLocation(whatLoc: Int){
+        let x = searchMyLoc(location: whatLoc)
+        appState.currentActions = appState.pLocations[x!].actions
+        appState.currentITBlock = 0
+        appState.currentLocationIndex = x!
+    }
+    
+    func searchMyLoc(location: Int) -> Int? {
+        //  return locations.firstIndex(where: $0.mapID == location)
+        return appState.pLocations.firstIndex { $0.mapID == location }
+}
 }
 
 #Preview {

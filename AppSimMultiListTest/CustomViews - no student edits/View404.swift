@@ -15,12 +15,17 @@ struct View404: View {
         Text("Welcome to the 404 view!")
         
         NavigationLink {
-            ClaimView(localItem: 404)
+            ClaimView(localItem: searchItems(item: 404)!)
         } label: {
             Text("Claim the 404 Code!")
         }
 
     }
+    
+    func searchItems(item: Int) -> Int? {
+        //  return locations.firstIndex(where: $0.mapID == location)
+        return appState.pItems.firstIndex { $0.itemID == item }
+}
 }
 
 

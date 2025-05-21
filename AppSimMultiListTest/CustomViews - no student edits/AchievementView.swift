@@ -151,6 +151,8 @@ struct AchievementView: View {
     func searchItems(item: Int) -> Int? {
         return appState.pItems.firstIndex {$0.itemID == item}
     }
+    
+    
 
 }
 
