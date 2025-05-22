@@ -7,7 +7,7 @@
 
 import Foundation
 
-var resumes: [resume] = [fdfRes]
+
 
 struct resume: Codable, Equatable, Identifiable {
     var id = UUID()

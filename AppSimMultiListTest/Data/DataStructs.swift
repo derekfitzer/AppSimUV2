@@ -28,6 +28,11 @@ class AppState: ObservableObject {
 }
 
 
+// Add your instance of the resume struct to this array. See DataResume for the struct.
+
+var resumes: [resume] = [fdfRes]
+
+
 // If you are using a custom location replace the ArchiveRandomRoom with your custom view in the array below. If you need an additional view please see mr fitzer.
 var views: [AnyView] = [
     AnyView(ArchiveView()) // 0 - Archive View

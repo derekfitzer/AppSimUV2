@@ -3,7 +3,7 @@
 //  AppSimMultiListTest
 //
 //  Created by Derek Fitzer on 5/12/25.
-//
+
 
 import Foundation
 
@@ -21,9 +21,9 @@ import Foundation
 
 // If you have a custom location replace the randomArchive view with your custom view in the views array
 
+// if you have made a custom location you will need to create an .customLocaton action 
 
-
-
+// Add your resume to the resume array in DataStructs.
 
 
 
@@ -31,7 +31,7 @@ import Foundation
 
 // Look at fdf2Data for a sample of a location with a claimable item.
 
-// videos on the process.
+
 
 
 
