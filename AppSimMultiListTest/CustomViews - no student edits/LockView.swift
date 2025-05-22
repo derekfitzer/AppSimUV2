@@ -18,8 +18,7 @@ struct LockView: View {
     @State var open = false
     
     
-    // what items unlock?
-    
+
     var body: some View {
         
         ZStack{
@@ -57,13 +56,7 @@ struct LockView: View {
                         Text("Unlock the Archive")
                             .padding()
                             .background(Color.white)
-                        //                    }  .alert("Alert title", isPresented: $enterAlert2, actions: {
-                        //
-                        //                        }, message: {
-                        //                            Text("Alert message")
-                        //                        })
-                        //
-                        //                    }
+
                     }.alert("Alert", isPresented: $enterAlert, actions: {
                         
                     }, message: {

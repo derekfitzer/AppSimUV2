@@ -8,22 +8,20 @@
 import SwiftUI
 
 struct ArchiveRandoRoom: View {
-    @State var room: archiveRandoRoom
+  //  @State var room: archiveRandoRoom
     
         var body: some View {
-        ZStack{
-            Image(room.image)
+        VStack{
+            Image(archiveRando.randomElement()!)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .ignoresSafeArea()
                 .foregroundStyle(Color.white)
-            ScrollView{
-                
-
-                Text(room.text)
-            }
+            
+            
         }.onAppear{
-            playLocationSound(sound: room.sound, type: "mp3")
+            let ws = archiveRandoSound.randomElement()
+            playLocationSound(sound: ws!, type: "mp3")
             
             
         }
@@ -31,6 +29,4 @@ struct ArchiveRandoRoom: View {
     }
 }
 
-//#Preview {
-//    RandoRoom(room: rando2)
-//}
+

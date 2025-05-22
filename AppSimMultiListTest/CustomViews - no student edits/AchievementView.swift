@@ -20,10 +20,7 @@ struct AchievementView: View {
     
     @EnvironmentObject var appState: AppState
     
-//    @StateObject private var appState = AppState()
-    
     @State var visitedLoc = 0
-//    @State var achItem: [Item]
     @State var showFoundItemAlert = false
     @State var showMysteryItemAlert = false
     @State var itemIndex = 0
@@ -41,7 +38,7 @@ struct AchievementView: View {
                 Text("Achivements Unlocked")
                     .bold()
                     .font(.system(size: 30))
-                Text("You have visited \(visitedLoc) of \(String(appState.pLocations.count)) locations")
+                Text("You have visited \(appState.foundLocations) of \(String(appState.pLocations.count)) locations")
                     .font(.system(size: 11))
                 Text("You have revealed 0 of \(conspracies.count) Conspiracies in the Campus")
                     .font(.system(size: 11))
@@ -68,7 +65,7 @@ struct AchievementView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .opacity(0.2)
                                 .onTapGesture {
-                                   
+                                    
                                     itemDescription = appState.pItems[index].name
                                     itemName = "Missing Achievement"
                                     showMysteryItemAlert = true
@@ -81,20 +78,12 @@ struct AchievementView: View {
                     .padding(.horizontal)
                     .alert(isPresented: $showFoundItemAlert) {
                         Alert(title: Text(itemName), message: Text(itemDescription), dismissButton: .default(Text("OK")))
-                            }
+                    }
                 }
                 
                 .alert(isPresented: $showMysteryItemAlert) {
                     Alert(title: Text(itemName), message: Text(itemDescription), dismissButton: .default(Text("OK")))
-                        }
-                
-//                Button("Reload") {
-//                    
-//                    checkVisited()
-//                    checkConspiracy(whatCon: consp0410)
-//                   // achItem = appState.pItems
-//                }
-//                .buttonStyle(.bordered)
+                }
             }
         }
     }
@@ -130,13 +119,10 @@ struct AchievementView: View {
         y.sort()
         var x = whatCon.requiredItemIDs
         x.sort()
-
+        
         let difference = y.difference(from: x)
         if difference.isEmpty {
-           // items[searchItems(item: whatCon.itemID)!].found = true
             if whatCon.claimed == false {
-               
-              //  items.append(item1001)
                 if let i = searchItems(item: whatCon.itemID) {
                     appState.pItems[i].found = true
                     playActionSound(sound: "fdfTada", type: "mp3")
@@ -152,17 +138,16 @@ struct AchievementView: View {
         return appState.pItems.firstIndex {$0.itemID == item}
     }
     
+    func updateVisitedLocations(){
+        appState.foundLocations = 0
+        for x in appState.pLocations {
+            if x.visited {
+                appState.foundLocations += 1
+            }
+        }
+    }
     
-
 }
-
-
-
-
-
-
-
-
 
 
 #Preview {

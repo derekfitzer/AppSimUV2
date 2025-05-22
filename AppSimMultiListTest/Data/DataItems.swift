@@ -24,14 +24,6 @@ struct Item{
 
 
 
-// item location list
-// 0 archive key
-
-
-
-
-
-
 var itemfdf404 = Item(name: "Block of Code - Hello World", itemID: 404, itemDescription: "Everyone needs some help taking those first steps when coding, This block is usualy their first", itemImage: "fdf404", found: false)
 
 var itemfdfDucky = Item(name: "Rubber Ducky", itemID: 404, itemDescription: "This is the famous rubber duck described in the Pragmatic Programmer by David Thomas.", itemImage: "fdfDucky", found: false)
@@ -41,12 +33,5 @@ var item1001 = Item(name: "Golden Ducky Conspiracy", itemID: 1001, itemDescripti
 var item0472 = Item(name: "App&Sim Flyer", itemID: 472, itemDescription: "The flyer contains valuable information about the App&Sim program.", itemImage: "fdfAppSimFlyer", found: false)
 
 var itemfdfArcade = Item(name: "Mini Game Achievement", itemID: 911, itemDescription: "You recieved the Mini Game Award", itemImage: "fdfArcade")
-
-//var items1 = Item(name: "Key to the Archives", itemID: 411, itemDescription: "Ornate Gold Key", itemImage: "fdfItem")
-//var items2 = Item(name: "Key to the Archives", itemID: 421, itemDescription: "Ornate Gold Key", itemImage: "fdfItem")
-//var items3 = Item(name: "Key to the Archives", itemID: 412, itemDescription: "Ornate Gold Key", itemImage: "fdfItem")
-//var items4 = Item(name: "Key to the Archives", itemID: 413, itemDescription: "Ornate Gold Key", itemImage: "fdfItem")
-//var items5 = Item(name: "Key to the Archives", itemID: 414, itemDescription: "Ornate Gold Key", itemImage: "fdfItem")
-//var items6 = Item(name: "Key to the Archives", itemID: 415, itemDescription: "Ornate Gold Key", itemImage: "fdfItem")
 
 var itemfdfBinary = Item(name: "Binary Achievement", itemID: 500, itemDescription: "You Solved the Binary Puzzle!", itemImage: "fdfBinaryCoin")

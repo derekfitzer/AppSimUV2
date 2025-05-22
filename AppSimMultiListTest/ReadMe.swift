@@ -7,13 +7,32 @@
 
 import Foundation
 
+//  THE CAMPUS V0.9
+
+// A collaborative portfolio story by App&Sim at the South-Westen Career Academy
+
+// New For Version 0.9
+
+// You will add the same data folder to DataStudent
+
+// NEW: Your location and items will be added the the AppState: ObservableObject in DataStructs.
+// Place your location at the end of the pLocations array
+// Place you item(s) at the end of the at the end of the pItems array
+
+// If you have a custom location replace the randomArchive view with your custom view in the views array
+
+
+
+
+
+
+
 // How to make a location in the Campus:
 
 // Look at fdf2Data for a sample of a location with a claimable item.
 
 // videos on the process.
-// https://www.loom.com/share/443ae14c0c9c4314aee037e1e7a8b523?sid=25ff6cca-7144-4009-88b4-9870186801ef
-// https://www.loom.com/share/c8a98a61836e4140a36778d0cc3a8ef7?sid=969e3d8e-502f-4d97-8d5a-b7a41f321746
+
 
 
 

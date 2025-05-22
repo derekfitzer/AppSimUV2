@@ -18,18 +18,13 @@ struct ArtistView: View {
                     .padding()
                 
                 Text("Developers / Artists")
-//                List(resumes, id: \.self) { student in
-                    
+
                 ForEach(resumes, id: \.id) { student in
                     
-                       
                             HStack{
-                                
-                              
                                 NavigationLink {
                                     ArtistDetail(myResume: student)
                                 } label: {
-                                 
                                     Text(student.name)
                                 }
                             }

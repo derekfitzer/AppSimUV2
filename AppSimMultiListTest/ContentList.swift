@@ -12,8 +12,6 @@ struct ContentList: View {
     @EnvironmentObject var appState: AppState
     @State var locAlert = false
     
-var views: [AnyView] = [AnyView(ArchiveView()), AnyView(LockView()), AnyView(CommissaryView(gold: player1.cash))] as [AnyView]
-    
     var body: some View {
         List{
             
@@ -49,7 +47,11 @@ var views: [AnyView] = [AnyView(ArchiveView()), AnyView(LockView()), AnyView(Com
                     Button{
                         let a = searchMyLoc(location: item.goLocation)
                         if a != nil {
-                            appState.pLocations[a!].visited = true
+                            if appState.pLocations[a!].visited == false {
+                                appState.pLocations[a!].visited = true
+                                appState.foundLocations += 1
+                            }
+                            
                             appState.currentActions = appState.pLocations[a!].actions
                             appState.currentITBlock = 0
                             appState.currentLocationIndex = a!
@@ -68,7 +70,7 @@ var views: [AnyView] = [AnyView(ArchiveView()), AnyView(LockView()), AnyView(Com
                     
 
                     NavigationLink {
-                        views[0]
+                        views[1]
                     } label: {
                         Text("Sample Load View")
                     }
@@ -113,14 +115,14 @@ var views: [AnyView] = [AnyView(ArchiveView()), AnyView(LockView()), AnyView(Com
         return appState.pItems.firstIndex { $0.itemID == item }
 }
     
-    func searchCustomLocations(item: Int) -> Int? {
-        //  return locations.firstIndex(where: $0.mapID == location)
-        return appState.customLocations.firstIndex { $0.goLocation == item }
-}
+//    func searchCustomLocations(item: Int) -> Int? {
+//        //  return locations.firstIndex(where: $0.mapID == location)
+//        return appState.customLocations.firstIndex { $0.goLocation == item }
+//}
 
     
 } // cv
-
+ 
 #Preview {
     ContentList()
 }
