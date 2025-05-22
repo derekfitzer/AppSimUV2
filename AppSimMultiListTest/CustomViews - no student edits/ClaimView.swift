@@ -46,13 +46,19 @@ struct ClaimView: View {
         }.onAppear{
             
             let item = appState.pItems[localItem]
-            image = item.itemImage
-            desc = item.itemDescription
-            name = item.name
+            
+                image = item.itemImage
+                desc = item.itemDescription
+                name = item.name
             itemLocation = localItem
-        }
+            
+            }
+        
     }
-    
+    func searchItem(item: Int) -> Int? {
+        //  return locations.firstIndex(where: $0.mapID == location)
+        return appState.pItems.firstIndex { $0.itemID == item }
+    }
     
 }
 

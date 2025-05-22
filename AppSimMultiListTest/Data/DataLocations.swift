@@ -14,16 +14,16 @@ var loc0470 = Location(mapID: 470, locationName: "App&Sim", blocks: [ptb0470, pt
 var ptb0470 = PTBlock(image: "fdfStore", text: "Welcome to the App&Sim. We have information about the program at the South-Western Career Academy in Grove City Ohio. That's back on Earth")
 var ptb0471 = PTBlock(image: "fdfStore", text: "Students in app and sim work with code, 3d, and more.")
 var ptb0472 = PTBlock(image: "fdfStore", text: "Feel free to take a flyer about the program.", actions: [act0472])
-var act0472 = Action(type: .claim, text: "Take Flyer", goLocation: 472)
+
 
 var loc0000 = Location(mapID: 0, locationName: "Welcome to The Campus",blocks: [loc0000B1, ptb3000], actions: [act0001, act0002, act0003, actNext], sound: "silence")
 var loc0000B1 = PTBlock(image: "dean1", text: "Welcome to the Campus", actions: [])
 
 var loc0001 = Location(mapID: 1, locationName: "Jerimiah Hall", blocks: [itbCommons, sampleITB2, sampleITB3], actions: [archiveDoor, act6000,act7000, act0002, act0003 ], sound: "fdfJhallNew")
 
-var act0001 = Action(type: .loadLocation, text: "Jerimiah Hall Lobby", goLocation: 1)
-var act0004 = Action(type: .loadCustomView, text: "Archive - Lower Level", goLocation: 404)
-//var actARK = Action(type: .claim, text: "Claim Archive Key", goLocation: 410)
+
+
+var act0004 = Action(type: .loadCustomView, text: "Archive - Lower Level", goLocation: 1)
 
 var loc0002 = Location(mapID: 2, locationName: "Blobert Commons",  blocks: [itbCommons2], actions: [act1000, act2000, act0001, act0003], sound: "fdfCafe" )
 var act0002 = Action(type: .loadLocation, text: "Blobert Commons Lobby", goLocation: 2)
@@ -36,12 +36,11 @@ var loc2000 = Location(mapID: 2000, locationName: "Commons South Hall", blocks: 
 var ptb2000 = PTBlock( image: "fdfJHallLobby2", text: "Commons South Hall", actions: [], sound: "fdfCafe")
 
 
-
-
 var loc0003 = Location(mapID: 3, locationName: "Nieve Dormitory", blocks: [dormLobby], actions: [act3000, act4000, act5000, act0001, act0002] , sound: "fdfDormMusic")
 var act0003 = Action(type: .loadLocation, text: "Nieve Dormitory Lobby", goLocation: 3)
 
-var loc3000 = Location(mapID: 3000, locationName: "Dorms 2st Floor Lobby",blocks: [ptb3000], actions: [act0003], sound: "fdfElevator")
+var loc3000 = Location(mapID: 3000, locationName: "Dorms 2st Floor Lobby",blocks: [ptb3000], actions: [act0210, act0220, act0230, act0140, act0003 ], sound: "fdfElevator")
+
 var ptb3000 = PTBlock(image: "fdfDormFloor", text: "Welcome to Nieve Dorms 2st Floor Lobby", actions: [act0200, act0210,act0220,act0230,act0240,act0250, act0003], sound: "fdfElevator")
 
 var loc4000 = Location(mapID: 4000, locationName: "Dorms 3rd Floor Lobby", blocks: [ptb4000], actions: [act0260, act0270,act0220,act0280,act0290,act0300, act0310, act0003], sound: "fdfElevator")

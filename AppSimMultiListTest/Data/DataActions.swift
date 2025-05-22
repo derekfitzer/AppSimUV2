@@ -9,6 +9,11 @@ import Foundation
 
 // You can modify you location name here - do not modify goLocation.
 
+// one off actions
+var archiveDoor = Action(type: .loadCustomView, text: "Enter The Archive", goLocation: 1)
+var act0001 = Action(type: .loadLocation, text: "Jerimiah Hall Lobby", goLocation: 1)
+
+
 var act0100 = Action(type: .loadLocation, text: "Reaghan Wolford", goLocation: 100)
 var act0110 = Action(type: .loadLocation, text: "Peyton", goLocation: 110)
 var act0120 = Action(type: .loadLocation, text: "Brayden Bonnell-Wright", goLocation: 120)
@@ -85,9 +90,7 @@ var act5000 = Action(type: .loadLocation, text: "Dorms 4th Floor Lobby", goLocat
 var act6000 = Action(type: .loadLocation, text: "Jerimiah Hall Floor 2 Lobby", goLocation: 6000)
 var act7000 = Action(type: .loadLocation, text: "Jerimiah Hall Floor 3 Lobby", goLocation: 7000)
 
-// one off actions
-
-var archiveDoor = Action(type: .loadCustomView, text: "Enter The Archive", goLocation: 404)
 
 
+var act0472 = Action(type: .claim, text: "Take Flyer", goLocation: 472)
 

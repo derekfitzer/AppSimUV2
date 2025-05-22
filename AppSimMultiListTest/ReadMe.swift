@@ -9,6 +9,8 @@ import Foundation
 
 //  THE CAMPUS V0.9
 
+// current issues - claim is going out of range , solve by searching for item number.
+
 // A collaborative portfolio story by App&Sim at the South-Westen Career Academy
 
 // New For Version 0.9

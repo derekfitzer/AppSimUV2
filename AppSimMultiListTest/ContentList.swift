@@ -14,13 +14,10 @@ struct ContentList: View {
     
     var body: some View {
         List{
-            
             ForEach(appState.currentActions, id: \.self) { item in
                 switch item.type {
                 case .next:
-                    
                     Button {
-                        //    print("should load next")
                         let cb = appState.pLocations[appState.currentLocationIndex].blocks.count - 1
                         if appState.currentITBlock < cb {
                             appState.currentITBlock += 1
@@ -67,14 +64,12 @@ struct ContentList: View {
                     
                 case .loadCustomView:
                     
-                    
-
                     NavigationLink {
-                        views[1]
+                        views[item.goLocation]
                     } label: {
-                        Text("Sample Load View")
+                        Text(item.text)
                     }
-
+                    
                     
                     
                     
@@ -82,47 +77,40 @@ struct ContentList: View {
                     Text("load global view")
                     
                 case .claim:
-                    
-                    
-                                        if let x = searchItems(item: item.goLocation){
-                                            if appState.pItems[x].found == false {
-                                                NavigationLink {
-                                                    ClaimView(localItem: x)
-                                                } label: {
-                                                    Text("\(item.text)")
-                                                }
-                                        }
-                    
-                                    }
-                
+                  //  Text("hi")
+                    if let x = searchItems(item: item.goLocation){
+                        
+                        if appState.pItems[x].found == false {
+                            NavigationLink {
+                                ClaimView(localItem: x)
+                            } label: {
+                                Text("\(item.text)")
+                            }
+                        }
+                    }
                 }
-                    
-            
             }
 
-            
         } // cl
-                    .scrollDisabled(true)
-                        .frame(width: 400, height: 400, alignment: .center)
+        .scrollDisabled(true)
+        .frame(width: 400, height: 400, alignment: .center)
+        
     } // cb
     func searchMyLoc(location: Int) -> Int? {
         //  return locations.firstIndex(where: $0.mapID == location)
         return appState.pLocations.firstIndex { $0.mapID == location }
-}
+    }
     
     func searchItems(item: Int) -> Int? {
         //  return locations.firstIndex(where: $0.mapID == location)
         return appState.pItems.firstIndex { $0.itemID == item }
-}
+    }
     
-//    func searchCustomLocations(item: Int) -> Int? {
-//        //  return locations.firstIndex(where: $0.mapID == location)
-//        return appState.customLocations.firstIndex { $0.goLocation == item }
-//}
 
     
+    
 } // cv
- 
+
 #Preview {
     ContentList()
 }
